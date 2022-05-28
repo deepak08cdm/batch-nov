@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .App-logo {
@@ -35,4 +39,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  margin: 3px;
+}
+.btn1{
+  background-color: aqua;
+  color: red;
+}
+.imageContainer{
+  height:30%;
+  max-width:70%;
+  display: flex;
+  padding:6px;
+  justify-content: start;
+}
+img{
+  max-height:30%;
+  max-width:70%;
 }
