@@ -1,9 +1,9 @@
 .App {
   text-align: center;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 
 .App-logo {
@@ -58,4 +58,7 @@ button {
 img{
   max-height:30%;
   max-width:70%;
+}
+table,tr,td,th{
+  border: 1px solid;
 }

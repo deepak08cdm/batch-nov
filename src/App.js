@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Typography } from '@mui/material';
 import IphoneImage from './Assets/Images/iphone13.jpg'
 import { useState } from 'react';
+import SignUpForm from './Component/SignUpForm';
+import Table from './Component/Table';
 
 const values = [
   {title:'Card1', body:'Hello, welcome to card1', imgSrc:'./Assets/Images/iphone13.jpg'},
@@ -19,7 +21,7 @@ function App() {
   const [data, setData] = useState(null)
   return (
     <div className="App">
-      {!data && <button onClick={()=>{setData(values)}}>load data</button>}
+      {/* {!data && <button onClick={()=>{setData(values)}}>load data</button>}
         {data &&
           data.map((item)=>{
             return(
@@ -38,7 +40,9 @@ function App() {
               </>
             )
           })
-        }
+        } */}
+        <SignUpForm/>
+        <Table/>
     </div>
   );
 }
