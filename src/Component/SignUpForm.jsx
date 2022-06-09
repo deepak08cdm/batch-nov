@@ -1,6 +1,11 @@
-import React,{useEffect, useState} from 'react'
-
+import { ImportExport } from '@mui/icons-material'
+import { ListItem } from '@mui/material'
+import React,{useEffect, useState, useRef} from 'react'
+const todoList = [
+    {name:'apple', status:'purchased'}
+]
 function SignUpForm() {
+    const fNameRef = useRef()
     const [formData, setFormData] = useState({
         fName:'',lName:'',email:'',password:''
     })
@@ -11,18 +16,20 @@ function SignUpForm() {
     }
     const handleData = (e)=>{
         e.stopPropagation()  // stop the bubble phase
-        console.log('form change')
         const obj = {[e.target.name]:e.target.value}
+        // console.log(fNameRef.current.style)
+        fNameRef.current.style.color = 'red'
+        console.log(fNameRef.current.value)
         setFormData({...formData,...obj})
     }
   return (
     <div >
         <form onSubmit={submitForm} onChange={handleData}>
             <label>First name</label>
-            <input type='text' name='fName' value={formData.fName} onChange={(e)=>{console.log('hello')}}/>
+            <input type='number' name='fName' ref={fNameRef} style={{width:'100px'}}/>
             <br/>
             <label>Last name</label>
-            <input type='text' name='lName' value={formData.lName} />
+            <input type='text' name='lName' value={formData.lName} ref={fNameRef}/>
             <br/>
             <label>Email</label>
             <input type='text' name="email" value={formData.email} />

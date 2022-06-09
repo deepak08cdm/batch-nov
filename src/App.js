@@ -8,6 +8,8 @@ import IphoneImage from './Assets/Images/iphone13.jpg'
 import { useState } from 'react';
 import SignUpForm from './Component/SignUpForm';
 import Table from './Component/Table';
+import TodoList from './Component/TodoList';
+import Routes from './Routes/Routes';
 
 const values = [
   {title:'Card1', body:'Hello, welcome to card1', imgSrc:'./Assets/Images/iphone13.jpg'},
@@ -21,6 +23,7 @@ function App() {
   const [data, setData] = useState(null)
   return (
     <div className="App">
+      <Navbar/>
       {/* {!data && <button onClick={()=>{setData(values)}}>load data</button>}
         {data &&
           data.map((item)=>{
@@ -41,12 +44,13 @@ function App() {
             )
           })
         } */}
-        <SignUpForm/>
-        <Table/>
+        <Routes/>
+        {/* <SignUpForm/> */}
+        {/* <TodoList/> */}
+        {/* <Table/> */}
+        {/* <img src={require('./Assets/Images/iphone13.jpg')}/> */}
     </div>
   );
 }
 
 export default App;
-
-// conditon? if true : if false

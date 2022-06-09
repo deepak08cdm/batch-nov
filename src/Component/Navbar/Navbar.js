@@ -1,9 +1,12 @@
 import { type } from '@testing-library/user-event/dist/type'
 import React,{useState} from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import './Navbar.css'
+
 
 function Navbar(props) {
   const [count, setCount] = useState(0)
+  const navigate = useNavigate()
   //background-color
   return (
     <nav className="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
@@ -16,10 +19,12 @@ function Navbar(props) {
       <div className="collapse navbar-collapse" id="navbarsExample02">
         <ul className="navbar-nav me-auto">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Home</a>
+            {/* <a className="nav-link active" aria-current="page" onClick={()=>{navigate('/');console.log('clicked1')}}>Home</a> */}
+            <Link to='/' className='nav-link active' >Home</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Link</a>
+            {/* <a className="nav-link"  onClick={()=>{'/signUp';console.log('clicked2')}}>Link</a> */}
+            <Link to='/signUp' className='nav-link'>Link</Link>
           </li>
         </ul>
         <form>
