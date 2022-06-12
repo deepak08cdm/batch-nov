@@ -1,38 +1,28 @@
 import React, { useEffect,useState } from 'react'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchData } from '../Redux/Action'
 function Table() {
-    const [data, setData] = useState([])
-    const [noOfPages, setNumberOfPages] = useState([])
-    const fetchData = async()=>{
-       try{
-        const result = await axios.get('https://jsonplaceholder.typicode.com/posts' )
-        // console.log(data)
-        setData(result.data)
-    }
-       catch(err){
-           console.log(err)
-       }
-    }
-    useEffect(()=>{
-        if(data.length>0){
-            const pages = Math.ceil(data.length/10)
-            let arr = []
-            for(let i=1;i<=pages;i++){
-                arr.push(i)
-            }
-            setNumberOfPages(arr)
-        }
-    },[data])
-    useEffect(()=>{
-        console.log(noOfPages)
-    },[noOfPages])
-    useEffect(()=>{
-        fetchData()
-    })
+    // const [data, setData] = useState([])
+    const dispatch = useDispatch()
+    const data = useSelector((state)=> {
+        console.log(state)
+        return(state?.stateManagement?.data)
+    })   // undefined   // error cannot find data of undefined
+    // const fetchData = async()=>{
+    //    try{
+    //     const result = await axios.get('https://jsonplaceholder.typicode.com/posts' )
+    //     // console.log(data)
+    //     setData(result.data)
+    // }
+    //    catch(err){
+    //        console.log(err)
+    //    }
+    // }
   return (
     <div>
-        {data.length==0 && <button onClick = {()=>{}}>load data</button>}
-        {data.length>0 && <table border='2px solid black' style={{width:'100%'}}>
+        { <button onClick = {()=>{dispatch(fetchData())}}>load data</button>}
+        {data && <table border='2px solid black' style={{width:'100%'}}>
         <thead>
             <tr>
                 <th>

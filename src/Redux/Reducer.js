@@ -4,6 +4,7 @@ const initialState = {
 }
 
 export function reducer (state=initialState, action){
+    console.log(action)
     switch(action.type){
         case 'ADDITEMTOLIST':{
             const list = [...state?.list]
@@ -20,7 +21,11 @@ export function reducer (state=initialState, action){
 }
 
 export function stateManagement (state=initialState, action){
+    console.log(action)
     switch(action.type){
+        case 'JSONDATA':{
+            return ({...state,data:action.payload})
+        }
         default :{
             return state
         }
