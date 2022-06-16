@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Typography } from '@mui/material';
 import IphoneImage from './Assets/Images/iphone13.jpg'
 import { useState } from 'react';
+import Main from './Child';
 import SignUpForm from './Component/SignUpForm';
 import Table from './Component/Table';
 import TodoList from './Component/TodoList';
@@ -20,35 +21,15 @@ const values = [
   {title:'Card6', body:'Hello, welcome to card3', imgSrc:'./Assets/Images/iphone13.jpg'}
 ]
 function App() {
-  const [data, setData] = useState(null)
+  const [counter, setCounter] = useState(0)
+  console.log('inside app')
   return (
     <div className="App">
-      <Navbar/>
-      {/* {!data && <button onClick={()=>{setData(values)}}>load data</button>}
-        {data &&
-          data.map((item)=>{
-            return(
-              <>
-                {
-                  item.title==='Card2' ? null : <Card title={item.title}>
-                  <Typography variant='string'>
-                    <div className='imageContainer'>
-                      <img src={require(`${item.imgSrc}`)} />
-                    </div>
-                    {item.body}
-                  </Typography>
-                </Card>
-                    
-                }
-              </>
-            )
-          })
-        } */}
-        <Routes/>
-        {/* <SignUpForm/> */}
-        {/* <TodoList/> */}
-        {/* <Table/> */}
-        {/* <img src={require('./Assets/Images/iphone13.jpg')}/> */}
+      <h1>{counter}</h1>
+      <button onClick={()=>{setCounter(counter+1)}}>increment</button>
+      <Main data = {counter}/>
+      {/* <Navbar/>
+        <Routes/> */}
     </div>
   );
 }
