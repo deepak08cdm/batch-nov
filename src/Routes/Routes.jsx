@@ -6,6 +6,7 @@ import Navbar from '../Component/Navbar/Navbar';
 import List from '../Component/List';
 import RouterList from '../Component/RouterList';
 import Table from '../Component/Table'
+import Main from '../Component/Context/Main.jsx'
 
 function Routes() {
   return (
@@ -16,6 +17,7 @@ function Routes() {
       <Route path='/data' element = {<Table/>} />    // : specifies that it is dynamic and pass some value in it
       <Route path='/signUp' element={<SignUpForm/>} />
       <Route path='/signUp/name' element={<TodoList/>}/>
+      <Route path='/context' element={<Main/>}/>
       {/* <Route path='*' element={<SignUpForm/>}/> */}
     </Rr>
     </>
